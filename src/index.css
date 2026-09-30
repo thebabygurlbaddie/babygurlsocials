@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #F2AEB9;
+    background-color: #4A0F1F;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-anton {
+  font-family: 'Anton', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-inter {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Deep burgundy/wine background with center radial glow */
+.bg-wine-radial {
+  background: radial-gradient(circle at 50% 32%, #6E2130 0%, #5C1428 45%, #4A0F1F 85%, #3d0c19 100%);
+  background-attachment: fixed;
+}
+
+/* Animated outline hearts */
+@keyframes drawAndFadeHeart {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.28;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 0.28;
+  }
+  75% {
+    stroke-dashoffset: 0;
+    opacity: 0.25;
+  }
+  92% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+}
+
+.heart-draw {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation-name: drawAndFadeHeart;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: infinite;
+}
+
+/* Pulsing pink glow for "Chat with me!" */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.85;
+    text-shadow: 0 0 4px rgba(242, 174, 185, 0.4), 0 0 8px rgba(242, 174, 185, 0.2);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(242, 174, 185, 0.9), 0 0 16px rgba(242, 174, 185, 0.6), 0 0 24px rgba(242, 174, 185, 0.3);
+  }
+}
+
+.chat-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Circular profile photo soft glow */
+.profile-glow {
+  box-shadow: 0 0 28px rgba(242, 174, 185, 0.3), 0 0 60px rgba(110, 33, 48, 0.5);
+}
+
+/* Press button glow */
+.button-glow {
+  box-shadow: 0 0 20px rgba(242, 174, 185, 0.15);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Respect reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .heart-draw {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 0.16 !important;
+  }
+  .chat-pulse-glow {
+    animation: none !important;
+    text-shadow: 0 0 8px rgba(242, 174, 185, 0.7) !important;
+  }
+  .animate-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
