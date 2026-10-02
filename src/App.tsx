@@ -67,7 +67,7 @@ export default function App() {
           <span className="h-[1px] flex-1 max-w-[48px] bg-[#F2AEB9]/25" />
         </div>
 
-        {/* 7. All the social buttons (Twitter / X with 18+ confirmation, Instagram, Fitness Page, TikTok, YouTube) */}
+        {/* 7. Social buttons (Twitter / X, Instagram, TikTok, YouTube) */}
         <div className="w-full">
           <SocialButtons />
         </div>

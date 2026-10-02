@@ -22,12 +22,6 @@ export const SocialButtons: React.FC = () => {
       icon: <Instagram className="w-5 h-5 text-[#F2AEB9]" />,
     },
     {
-      id: 'fitness',
-      name: 'Fitness Page',
-      url: 'https://instagram.com/_babygurlbaddiexo',
-      icon: <Instagram className="w-5 h-5 text-[#F2AEB9]" />,
-    },
-    {
       id: 'tiktok',
       name: 'TikTok',
       url: 'https://www.tiktok.com/@thebabygurlbaddie',
@@ -72,7 +66,7 @@ export const SocialButtons: React.FC = () => {
         </div>
       </a>
 
-      {/* 2-5: Remaining Social Buttons */}
+      {/* Remaining Social Buttons */}
       {links.map((item) => (
         <a
           key={item.id}
